@@ -40,17 +40,12 @@ from account.views import (
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home_screen_view, name="home"),
-    path('blog/', include('blog.urls', 'blog')),
     path('register/', registration_view, name="register"),  
     path('logout/', logout_view, name="logout"),  
     path('login/', login_view, name="login"),  
+    path('blog/', include('blog.urls', 'blog')),
     path('must_authenticate/', must_authenticate_view, name="must_authenticate"),  
     path('account/', account_view, name="account"),
-
-
-   	# REST-framework
-    path('api/blog/', include('blog.api.urls', 'blog_api')),
-    path('api/account/', include('account.api.urls', 'account_api')),
 
     # Password reset links (ref: https://github.com/django/django/blob/master/django/contrib/auth/views.py)
     # to su django source code views for  password reset  (ne trebamo svoje) i svi urlovi za password reset po django dokumentaciji

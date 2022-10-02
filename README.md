@@ -1,4 +1,6 @@
  BlogPostApp
+
+ load env variable on start of new terminal: export $(grep -v '^#' .vscode/.env | xargs)
  
  Home screen:
  ![home](https://user-images.githubusercontent.com/77300331/154117052-72d04e4c-eee6-4a14-aaeb-9bbd073e4c17.png)
