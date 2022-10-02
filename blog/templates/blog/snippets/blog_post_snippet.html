@@ -26,6 +26,7 @@
 					<a href="{% url 'blog:edit' blog_post.slug %}" class="btn btn-primary">Update</a>
 				{% endif %}
 			</div>
+			{% include 'blog/snippets/like_dislike.html' %}
 			<div class="card-footer text-muted">
 			  Updated on {{blog_post.date_updated}} by {{blog_post.author}}
 			</div>

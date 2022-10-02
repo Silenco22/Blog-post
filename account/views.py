@@ -1,5 +1,3 @@
-from email import contentmanager
-from multiprocessing import AuthenticationError
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate, logout
 from account.forms import AccountAuthenticationForm, AccountUpdateForm, RegistrationForm

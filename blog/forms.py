@@ -1,7 +1,7 @@
 
 from django import forms
 
-from blog.models import BlogPost
+from blog.models import BlogPost, Comment
 
 class CreateBlogPostForm(forms.ModelForm):
     
@@ -26,3 +26,27 @@ class UpdateBlogPostForm(forms.ModelForm):
         if commit:
             blog_post.save()
         return blog_post
+
+class CommentForm(forms.ModelForm):
+    comment = forms.CharField(
+        label='',
+        widget=forms.Textarea(
+            attrs={'rows': '3', 'cols':'66',
+                   'placeholder': 'Comment here...'}
+        ))
+    
+    class Meta:
+        model = Comment
+        fields = ['comment']
+
+class EditCommentForm(forms.ModelForm):
+    comment = forms.CharField(
+        label='',
+        widget=forms.Textarea(
+            attrs={'rows': '3', 'max-cols':'75',
+                   'placeholder': 'Comment here...'}
+        ))
+    
+    class Meta:
+        model = Comment
+        fields = ['comment']

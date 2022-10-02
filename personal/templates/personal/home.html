@@ -51,8 +51,8 @@ home screen za personal app
 			<div class="d-lg-none mb-3">
 				<div class="card m-auto d-flex flex-column p-3">
 					<a href="/"><img class="img-fluid d-block m-auto pb-2" src="{% static 'random.png' %}" width="72" height="72"></a>
-					<p class="lead">Hello! Welcome to my first ever web application. Django is a powerful 
-	  					framework and you'll see why on this website.</p>
+					<p class="lead">Hello! Welcome to my first developer blog. Django is a powerful 
+	  					framework and if you would like to make a post click the button below.</p>
 					<p class="m-auto"><a class="btn btn-primary" href="{% url 'blog:create' %}">Create post</a></p>
 				</div>
 			</div>
@@ -63,7 +63,9 @@ home screen za personal app
 				{% for post in blog_posts %}
 					<div class="blog-post-container">
 						{% include 'blog/snippets/blog_post_snippet.html' with blog_post=post %}
+						
 					</div>
+						
 				{% endfor %}
 			{% else %}
 				<div class="blog-post-container">
@@ -85,8 +87,8 @@ home screen za personal app
 
 			<div class="card create-post-bar d-flex flex-column p-3">
 				<a href="/"><img class="img-fluid d-block m-auto pb-2" src="{% static 'random.png' %}" width="72" height="72"></a>
-				<p class="lead">Hello! Welcome to my first ever web application. Django is a powerful 
-					framework and you'll see why on this website.</p>
+				<p class="lead">Hello! Welcome to my first developer blog. Django is a powerful 
+					framework and if you would like to make a post click the button below.</p>
 				<p class="m-auto"><a class="btn btn-primary" href="{% url 'blog:create' %}">Create post</a></p>
 			</div>
 		
