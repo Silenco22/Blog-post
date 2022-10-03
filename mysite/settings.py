@@ -23,10 +23,13 @@ RUNNING_DEVSERVER = (len(sys.argv) > 1 and sys.argv[1] == 'runserver')
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.getenv("SECRET_KEY")
+CSRF_TRUSTED_ORIGINS = [
+    'https://web-production-b77e.up.railway.app'
+]
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = True if RUNNING_DEVSERVER else False
-DEBUG = True 
+DEBUG = True if RUNNING_DEVSERVER else False
+# DEBUG = True 
 
 ALLOWED_HOSTS = ['*']
 
