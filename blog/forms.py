@@ -1,4 +1,3 @@
-
 from django import forms
 
 from blog.models import BlogPost, Comment
@@ -31,7 +30,7 @@ class CommentForm(forms.ModelForm):
     comment = forms.CharField(
         label='',
         widget=forms.Textarea(
-            attrs={'rows': '3', 'cols':'66',
+            attrs={'rows': '3', 'style': 'width: 99% !important; resize: vertical !important;',
                    'placeholder': 'Comment here...'}
         ))
     
