@@ -25,7 +25,8 @@ RUNNING_DEVSERVER = (len(sys.argv) > 1 and sys.argv[1] == 'runserver')
 SECRET_KEY = os.getenv("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True if RUNNING_DEVSERVER else False
+# DEBUG = True if RUNNING_DEVSERVER else False
+DEBUG = True 
 
 ALLOWED_HOSTS = ['*']
 
@@ -168,7 +169,6 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static_cdn'),
     
 ]
-
 AWS_ACCESS_KEY_ID = os.getenv("AWS_ACCESS_KEY_ID")
 AWS_SECRET_ACCESS_KEY = os.getenv("AWS_SECRET_ACCESS_KEY")
 AWS_STORAGE_BUCKET_NAME = os.getenv("AWS_STORAGE_BUCKET_NAME")
@@ -177,11 +177,7 @@ AWS_S3_OBJECT_PARAMETERS = {
     'CacheControl': 'max-age=86400',
 }
 AWS_LOCATION = 'static'
-
-
 STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{AWS_LOCATION}/'
-
-
 AWS_S3_FILE_OVERWRITE = True
 AWS_DEFAULT_ACL = 'public-read'
 AWS_S3_REGION_NAME = "eu-west-2" # your region
@@ -189,5 +185,4 @@ AWS_S3_SIGNATURE_VERSION = "s3v4"
 AWS_S3_ADDRESSING_STYLE = "virtual"
 
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
