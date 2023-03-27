@@ -9,6 +9,7 @@ from blog.views import (
     delete_commnet_view,
     add_like,
     add_dislike,
+    delete_blog_view,
 )
 
 app_name = 'blog'
@@ -17,6 +18,7 @@ urlpatterns = [
     path('create/', create_blog_view, name="create"),
     path('<slug>/', detail_blog_view, name="detail"),
     path('<slug>/edit', edit_blog_view, name="edit"),
+    path('<slug>/edit/delete-blog', delete_blog_view, name="delete-blog"),
     # fix path
     path('<slug>/<int:pk>/comment/edit', edit_commnet_view, name="comment-edit"),
     path('<slug>/comment/<int:pk>/delete', delete_commnet_view, name="comment-delete"),

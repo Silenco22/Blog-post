@@ -47,6 +47,8 @@ urlpatterns = [
     path('must_authenticate/', must_authenticate_view, name="must_authenticate"),  
     path('account/', account_view, name="account"),
 
+    path('__debug__/', include('debug_toolbar.urls')),
+
     # Password reset links (ref: https://github.com/django/django/blob/master/django/contrib/auth/views.py)
     # to su django source code views for  password reset  (ne trebamo svoje) i svi urlovi za password reset po django dokumentaciji
     path('password_change/done/', auth_views.PasswordChangeDoneView.as_view(template_name='registration/password_change_done.html'), 
