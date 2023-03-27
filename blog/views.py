@@ -27,6 +27,7 @@ def create_blog_view(request):
         obj.author = author
         obj.save()
         form = CreateBlogPostForm()
+        return redirect("home")
     context['form'] = form
 
     return render(request, "blog/create_blog.html", context)
@@ -97,9 +98,35 @@ def edit_blog_view(request, slug):
     )
 
     context['form'] = form
+    context['slug'] = slug
 
     return render(request, 'blog/edit_blog.html', context)
 
+def delete_blog_view(request, slug):
+    context = {}
+    user = request.user
+
+    if not user.is_authenticated:
+        return redirect("must_authenticate.html")
+    
+    
+    blog_post = get_object_or_404(BlogPost, slug=slug)
+
+    if blog_post.author != user:
+        return HttpResponse("You are not the author of this post.")
+    
+    if request.method == 'GET':
+        context['slug'] = slug
+        return render(request, 'blog/delete_blog.html', context)
+    
+    if request.POST:
+        blog_post.delete()
+
+        return redirect('home')
+    
+   
+    blog_post.delete()
+    return redirect("home")
 
 def get_blog_queryset(query=None):
     queryset = []

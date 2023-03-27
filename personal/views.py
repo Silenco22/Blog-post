@@ -4,6 +4,10 @@ from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 
 from blog.views import get_blog_queryset
 from blog.models import BlogPost
+from dbtestaws.models import FakeModel
+
+from faker import Faker
+
 
 BLOG_POSTS_PER_PAGE = 2
 
@@ -29,5 +33,21 @@ def home_screen_view(request):
         blog_posts = blog_posts_paginator.page(blog_posts_paginator.num_pages)
 
     context['blog_posts'] = blog_posts
+    # fake = Faker()
+
+    test = FakeModel.objects.all()
+
+    l = []
+    for i in test:
+        l.append(i.name)
+    
+
+    
+    count = len(l)
+    print(count)
+    # update
+    # test = FakeModel.objects.all().update(name=fake.name())
+    
+
 
     return render(request, "personal/home.html", context)
