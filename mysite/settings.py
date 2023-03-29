@@ -64,7 +64,7 @@ INSTALLED_APPS = [
     # 'rest_framework.authtoken',
     'crispy_forms',
     'storages',
-    "debug_toolbar",
+    # "debug_toolbar",
 
     #my apps:
     'personal',
