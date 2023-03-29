@@ -6,7 +6,7 @@ from blog.views import get_blog_queryset
 from blog.models import BlogPost
 # from dbtestaws.models import FakeModel
 
-from faker import Faker
+# from faker import Faker
 
 
 BLOG_POSTS_PER_PAGE = 2
