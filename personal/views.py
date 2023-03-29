@@ -4,7 +4,7 @@ from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 
 from blog.views import get_blog_queryset
 from blog.models import BlogPost
-from dbtestaws.models import FakeModel
+# from dbtestaws.models import FakeModel
 
 from faker import Faker
 
@@ -35,16 +35,16 @@ def home_screen_view(request):
     context['blog_posts'] = blog_posts
     # fake = Faker()
 
-    test = FakeModel.objects.all()
+    # test = FakeModel.objects.all()
 
-    l = []
-    for i in test:
-        l.append(i.name)
+    # l = []
+    # for i in test:
+    #     l.append(i.name)
     
 
     
-    count = len(l)
-    print(count)
+    # count = len(l)
+    # print(count)
     # update
     # test = FakeModel.objects.all().update(name=fake.name())
     
