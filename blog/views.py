@@ -13,14 +13,10 @@ from django.http import JsonResponse
 def create_blog_view(request):
 
     context = {}
-
     user = request.user
-
     if not user.is_authenticated:
         return redirect('must_authenticate')
-    
     form = CreateBlogPostForm(request.POST or None, request.FILES or None)
-
     if form.is_valid():
         obj = form.save(commit=False)
         author = Account.objects.filter(email=user.email).first()
@@ -29,7 +25,6 @@ def create_blog_view(request):
         form = CreateBlogPostForm()
         return redirect("home")
     context['form'] = form
-
     return render(request, "blog/create_blog.html", context)
 
 def detail_blog_view(request, slug):
@@ -268,3 +263,4 @@ def add_dislike(request, slug, pk):
         return redirect(next)
 
 
+#
